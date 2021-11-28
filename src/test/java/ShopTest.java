@@ -13,7 +13,7 @@ public class ShopTest {
     Guitar guitar;
     Drum drum;
     Amplifier amplifier;
-    ISell guitar1;
+
 
 
     @Before
@@ -33,6 +33,14 @@ public class ShopTest {
     @Test
     public void canAddItemsToStock(){
         shop.addToStock(guitar);
+        assertEquals(1,shop.numberOfStockItems());
+    }
+
+    @Test
+    public void canRemoveItemFromStock(){
+        shop.addToStock(guitar);
+        shop.addToStock(drum);
+        shop.removeFromStock(guitar);
         assertEquals(1,shop.numberOfStockItems());
     }
 }
